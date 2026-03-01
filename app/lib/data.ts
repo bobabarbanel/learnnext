@@ -1,3 +1,4 @@
+console.log('DB URL loaded:', !!process.env.DATABASE_URL) 
 import postgres from 'postgres';
 import {
   CustomerField,
@@ -8,8 +9,10 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
-
+// console.log('DATABASE_URL in db file:', process.env.DATABASE_URL);
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+
+
 
 export async function fetchRevenue() {
   try {
